@@ -28,8 +28,6 @@ public class EmpWageComputation
                 companyEmployee.setTotalEmpWage( totalEmpHrs * companyEmployee.getEmpRatePerHour() );
                 System.out.println("Total Wage of " + companyEmployee.getCompanyName() + " Employee is " + companyEmployee.getTotalEmpWage());
         }
-
-        //MAIN
         public static void main(String args[])
          {
                 EmpWageComputation empwagecomputation = new EmpWageComputation();
@@ -51,7 +49,6 @@ class CompanyEmpWage
         public int HoursInMonth;
 
         public int totalEmpWage = 0;
-        //CONSTRUCTOR
         public CompanyEmpWage( String CompanyName, int EmpRatePerHour, int NumOfWorkingDays, int HoursInMonth )
         {
                 this.CompanyName = CompanyName;
@@ -59,7 +56,6 @@ class CompanyEmpWage
                 this.NumOfWorkingDays = NumOfWorkingDays;
                 this.HoursInMonth = HoursInMonth;
         }
-        //GETTERS
         public String getCompanyName()
         {
                 return CompanyName;
