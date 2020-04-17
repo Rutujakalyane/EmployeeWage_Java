@@ -1,29 +1,18 @@
-public class EmpWageComputation {
+public class EmpWageComputation
+{
         //CONSTANTS
         public final int IS_PART_TIME = 1;
         public final int IS_FULL_TIME = 2;
-        public String COMPANY_NAME;
-        public int EMP_RATE_PER_HOUR;
-        public int NUM_OF_WORKING_DAYS;
-        public int HRS_IN_MONTH;
-        public int TOTAL_EMP_WAGE;
-	//CONSTRUCTOR
-        public EmpWageComputation( String COMPANY_NAME, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int HRS_IN_MONTH )  
-	{
-                this.COMPANY_NAME = COMPANY_NAME;
-                this.EMP_RATE_PER_HOUR = EMP_RATE_PER_HOUR;
-                this.NUM_OF_WORKING_DAYS = NUM_OF_WORKING_DAYS;
-                this.HRS_IN_MONTH = HRS_IN_MONTH;
-        }
- 	public void computeTotalEmpWage()   
-	{
+        //COMPUTATION
+        public void computeTotalEmpWage( CompanyEmpWage companyEmployee )
+        {
                 int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-                while( totalEmpHrs <= getMaxHrsInMonth() && totalWorkingDays < getMaxNumOfWorkingDays() )
-               {
+                while( totalEmpHrs <= companyEmployee.getMaxHrsInMonth() && totalWorkingDays < companyEmployee.getMaxNumOfWorkingDays() )
+                {
                         totalWorkingDays++;
                         int empCheck = (int) ( Math.random() * 10 ) % 3;
                         switch (empCheck)
-			{
+                        {
                                 case IS_PART_TIME:
                                         empHrs = 4;
                                         break;
@@ -36,36 +25,59 @@ public class EmpWageComputation {
                         totalEmpHrs += empHrs;
                         System.out.println("Day#: " + totalWorkingDays + " Emp Hr: " +  empHrs);
                 }
-                TOTAL_EMP_WAGE = totalEmpHrs * getEmpRatePerHour();
-                System.out.println("Total Wage of " + getCompanyName() + " Employee is " + getTotalEmpWage());
+                companyEmployee.setTotalEmpWage( totalEmpHrs * companyEmployee.getEmpRatePerHour() );
+                System.out.println("Total Wage of " + companyEmployee.getCompanyName() + " Employee is " + companyEmployee.getTotalEmpWage());
         }
-	public String getCompanyName()
-	{
-                return COMPANY_NAME;
-        }
-	public int getEmpRatePerHour() 
-	{
-                return EMP_RATE_PER_HOUR;
-        }
-	public int getMaxNumOfWorkingDays()   
-	{
-                return NUM_OF_WORKING_DAYS;
-        }
-	public int getMaxHrsInMonth()  
-	{
-                return HRS_IN_MONTH;
-        }
-	public  int getTotalEmpWage()
-	{
-                return TOTAL_EMP_WAGE;
-        }
-	 public static void main(String args[]) {
-                //CREATING OBJECTS FOR COMPANY
-                EmpWageComputation facebook = new EmpWageComputation( "facebook", 20, 20, 100 );
-                facebook.computeTotalEmpWage();
+        public static void main(String args[])
+         {
+                EmpWageComputation empwagecomputation = new EmpWageComputation();
+                //DECLARING ARRAY OF COMPANY EMPLOYEE WAGE OBJECT
+                CompanyEmpWage[] company = new CompanyEmpWage[2];
 
-                EmpWageComputation google = new EmpWageComputation( "Google", 50, 15, 75 );
-                google.computeTotalEmpWage();
+                company[0] = new CompanyEmpWage( "facebook", 20, 20, 100 );
+                empwagecomputation.computeTotalEmpWage(company[0]);
+
+                company[1] = new CompanyEmpWage( "GOOGLE", 30, 20, 70 );
+                empwagecomputation.computeTotalEmpWage(company[1]);
         }
 }
+class CompanyEmpWage
+{
+	public String CompanyName;
+        public int EmpRatePerHour;
+        public int NumOfWorkingDays;
+        public int HoursInMonth;
 
+        public int totalEmpWage = 0;
+        public CompanyEmpWage( String CompanyName, int EmpRatePerHour, int NumOfWorkingDays, int HoursInMonth )
+        {
+                this.CompanyName = CompanyName;
+                this.EmpRatePerHour = EmpRatePerHour;
+                this.NumOfWorkingDays = NumOfWorkingDays;
+                this.HoursInMonth = HoursInMonth;
+        }
+        public String getCompanyName()
+        {
+                return CompanyName;
+        }
+        public int getEmpRatePerHour()
+        {
+                return EmpRatePerHour;
+        }
+        public int getMaxNumOfWorkingDays()
+        {
+                return NumOfWorkingDays;
+        }
+        public int getMaxHrsInMonth()
+        {
+                return HoursInMonth;
+        }
+        public void setTotalEmpWage( int totalEmpWage )
+        {
+                this.totalEmpWage = totalEmpWage;
+        }
+        public int getTotalEmpWage()
+        {
+                return totalEmpWage;
+        }
+}
