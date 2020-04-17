@@ -4,15 +4,16 @@ public class EmpWageComputation {
         public final int IS_FULL_TIME = 2;
         public String COMPANY_NAME;
         public int EMP_RATE_PER_HOUR;
-        public int MAX_NUM_OF_WORKING_DAYS;
-        public int MAX_HRS_IN_MONTH;
+        public int NUM_OF_WORKING_DAYS;
+        public int HRS_IN_MONTH;
         public int TOTAL_EMP_WAGE;
 	//CONSTRUCTOR
-        public EmpWageComputation( String COMPANY_NAME, int EMP_RATE_PER_HOUR, int MAX_NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH )        {
+        public EmpWageComputation( String COMPANY_NAME, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int HRS_IN_MONTH )  
+	{
                 this.COMPANY_NAME = COMPANY_NAME;
                 this.EMP_RATE_PER_HOUR = EMP_RATE_PER_HOUR;
-                this.MAX_NUM_OF_WORKING_DAYS = MAX_NUM_OF_WORKING_DAYS;
-                this.MAX_HRS_IN_MONTH = MAX_HRS_IN_MONTH;
+                this.NUM_OF_WORKING_DAYS = NUM_OF_WORKING_DAYS;
+                this.HRS_IN_MONTH = HRS_IN_MONTH;
         }
  	public void computeTotalEmpWage()   
 	{
@@ -48,11 +49,11 @@ public class EmpWageComputation {
         }
 	public int getMaxNumOfWorkingDays()   
 	{
-                return MAX_NUM_OF_WORKING_DAYS;
+                return NUM_OF_WORKING_DAYS;
         }
 	public int getMaxHrsInMonth()  
 	{
-                return MAX_HRS_IN_MONTH;
+                return HRS_IN_MONTH;
         }
 	public  int getTotalEmpWage()
 	{
