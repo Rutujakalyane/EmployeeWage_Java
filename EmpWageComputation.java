@@ -40,7 +40,7 @@ public class EmpWageComputation implements WageMethod	{
 		//DECLARING ARRAYLIST OF COMPANY EMPLOYEE WAGE OBJECT
 		ArrayList<CompanyEmpWage> company = new ArrayList<CompanyEmpWage>();
 
-		company.add( new CompanyEmpWage( "BRIDGELABZ", 20, 20, 100 ));
+		company.add( new CompanyEmpWage( "FACEBOOK", 20, 20, 100 ));
 		empwagecomputation.computeTotalEmpWage(company.get(0));
 
 		company.add( new CompanyEmpWage( "GOOGLE", 30, 20, 70 ));
@@ -49,21 +49,25 @@ public class EmpWageComputation implements WageMethod	{
 		while( true )	{
 			System.out.println("Welcome to Employee wage portal");
 			System.out.println("Enter your choice to see the Total wage of an Employee of a particular company");
-			System.out.println("Press 1 for Bridgelabz");
+			System.out.println("Press 1 for Facebook");
 			System.out.println("Press 2 for Google");
 			System.out.println("Press 3 to Exit");
 			Scanner scanner = new Scanner(System.in);
 			int option = scanner.nextInt();
-			if( option == 1 )	{
-				System.out.println( "The Total Employee Wage of Bridgelabz is: " + company.get(0).getTotalEmpWage() );
+			if( option == 1 )	
+			{
+				System.out.println( "The Total Employee Wage of Facebook is: " + company.get(0).getTotalEmpWage() );
 			}
-			else if( option == 2 )	{
+			else if( option == 2 )
+			{
 				System.out.println( "The Total Employee Wage of Google is: " + company.get(1).getTotalEmpWage() );
 			}
-			else if( option == 3 )	{
+			else if( option == 3 )
+			{
 				System.exit(0);
 			}
-			else	{
+			else
+			{
 				System.out.println("Invalid option \n Try again");
 			}
 			System.out.println();
